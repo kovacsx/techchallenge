@@ -17,8 +17,8 @@ Position Vehicle::calculateVehiclePositionInTime(float currentTime) const {
 	
 	const float radOrient = orientation / 180.0 * M_PI;
 
-	const float dx = sin(radOrient) * speed * currentTime;
-	const float dy = cos(radOrient) * speed * currentTime;
+	const float dx = cos(radOrient) * speed * currentTime;
+	const float dy = sin(radOrient) * speed * currentTime;
 
 	return pair(position.first + dx, position.second + dy);
 }
