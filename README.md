@@ -1,6 +1,6 @@
 # techchallenge (done as part of a work interview)
 
-Should support any platform that supports C++17 and has CMake. Also uses Google Test as test framework.
+Should support any platform that supports C++17 and has CMake. Also uses Google Test as test framework (included as submodule)
 
 Configure using CMake (assuming it's cloned in 'techchallenge'):
 
