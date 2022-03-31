@@ -8,13 +8,19 @@
 	Vehicle class that models basic vehicle data
 
 */
+
+typedef std::pair<float, float> Position; // East / North position pair
+
 struct Vehicle {
-	int16_t northPosition; // [m] vehicle position relative to a reference point in North (y) direction
-	int16_t eastPosition; // [m] vehicle position relative to a reference point in East (x) direction
+
+	Position position; // [Position] Vehicles initial position
 	int16_t orientation; // [deg] direction the vehicle is currently going
 	int16_t speed; // [m/s] vehicle speed in the direction of “orientation”
 
-	Vehicle(int16_t north = 0, int16_t east = 0, int16_t orient = 0, int16_t speed = 0);
+	// east [meters] vehicle position relative to a reference point in East (x) direction
+	// north [meters] vehicle position relative to a reference point in North (y) direction
+
+	Vehicle(int16_t east = 0, int16_t north = 0, int16_t orient = 0, int16_t speed = 0);
 
 	// calculates vehicles position after currentTime seconds.
 	//
@@ -24,10 +30,10 @@ struct Vehicle {
 	//
 	// Throws: std::invalid_argument
 	//
-	std::pair<float, float> calculateVehiclePositionInTime(float currentTime) const;
+	Position calculateVehiclePositionInTime(float currentTime) const;
 
 	// calculate distance to other position
-	float distanceToPosition(const std::pair<float, float> position) const;
+	float distanceToPosition(const Position &position) const;
 
 	// calculate distance to other vehicle
 	float distanceToVehicle(const Vehicle &vehicle) const;

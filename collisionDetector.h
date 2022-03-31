@@ -12,6 +12,6 @@ namespace CollisionDetector {
 	// timeWindow : [sec] How far in the future collision detector should check
 	bool detectCollision(const Vehicle &vehicle1, 
 							const Vehicle &vehicle2, 
-							const float crashThreshold = 0.5, 
+							const float crashThreshold = 1.0, 
 							const float timeWindow = 600);
 }
