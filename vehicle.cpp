@@ -1,5 +1,7 @@
 #include "vehicle.h"
 
+#include <cmath>
+
 using namespace std;
 
 Vehicle::Vehicle(int16_t _northPosition, int16_t _eastPosition, 
@@ -16,7 +18,11 @@ std::pair<float, float> Vehicle::calculateVehiclePositionInTime(float currentTim
 }
 
 float Vehicle::distanceToPosition(const std::pair<float, float> position) const {
-	return 1.0;
+
+	const auto dx = fabs(position.first - northPosition);
+	const auto dy = fabs(position.second - eastPosition);
+
+	return sqrt(pow(dx, 2) + pow(dy, 2));
 }
 
 float Vehicle::distanceToVehicle(const Vehicle &vehicle) const {
