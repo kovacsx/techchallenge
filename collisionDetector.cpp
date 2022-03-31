@@ -37,14 +37,14 @@ namespace CollisionDetector {
 
 			auto newDistance = pointDistance(newPosition1, newPosition2);
 
-			cout << "iter: " << iters << ", distance: " << newDistance << endl;
+			// cout << "iter: " << iters << ", distance: " << newDistance << endl;
 
 			if(newDistance >= currentDistance) {
 				if(fabs(timeStep) > minTimeStep) {
-					cout << "timestep decrease (" << iters << "): " << timeStep << " -> " << timeStep / 2.0 << endl;
+					// cout << "timestep decrease (" << iters << "): " << timeStep << " -> " << timeStep / 2.0 << endl;
 					timeStep /= 2.0;
 				} else {
-					cout << "detectCollision iters: " << iters++ << ", collides: No" << endl;
+					// cout << "detectCollision iters: " << iters++ << ", collides: No" << endl;
 					return false;
 				}
 
@@ -54,7 +54,7 @@ namespace CollisionDetector {
 				auto prevDistance = pointDistance(prevPosition1, prevPosition2);
 
 				if(prevDistance < newDistance) {
-					cout << "Inv timestep: " << timeStep << " -> " << -timeStep << endl;
+					// cout << "Inv timestep: " << timeStep << " -> " << -timeStep << endl;
 					timeStep = -timeStep;
 				}
 				continue;
@@ -65,7 +65,7 @@ namespace CollisionDetector {
 			currentDistance = newDistance;
 		}
 		const bool willCollide = (currentDistance <= crashThreshold);
-		cout << "detectCollision iters: " << iters++ << ", collides: " << (willCollide ? "Yes!" : "No!") << endl;
+		// cout << "detectCollision iters: " << iters++ << ", collides: " << (willCollide ? "Yes!" : "No!") << endl;
 		return willCollide;
 	}
 }
