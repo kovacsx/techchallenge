@@ -8,8 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_subdirectory(lib/googletest)
 
 set(BIN_SOURCES main.cpp)
-set(TEST_SOURCES test.cpp)
-set(LIB_SOURCES collisionDetector.cpp challenge.cpp )
+set(TEST_SOURCES test_detector.cpp test_vehicle.cpp)
+set(LIB_SOURCES collisionDetector.cpp vehicle.cpp)
 
 set(BIN_NAME ${CMAKE_PROJECT_NAME})
 set(TEST_NAME ${BIN_NAME}_test)

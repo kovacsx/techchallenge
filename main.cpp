@@ -1,5 +1,5 @@
 #include <iostream>
-#include "challenge.h"
+
 #include "collisionDetector.h"
 
 using namespace std;
@@ -12,9 +12,9 @@ int main(int argc, char **argv) {
 	Vehicle v2{20, 20, 20, 30};
 	Vehicle v3{30, 50, 20, 10};
 
-	cout << "    v1 does collide with v2: " << CollisionDetection::detectCollision(v1, v2) << endl;
-	cout << "    v2 does collide with v3: " << CollisionDetection::detectCollision(v2, v3) << endl;
-	cout << "    v1 does collide with v3: " << CollisionDetection::detectCollision(v1, v3) << endl;
+	cout << "    v1 does collide with v2: " << CollisionDetector::detectCollision(v1, v2) << endl;
+	cout << "    v2 does collide with v3: " << CollisionDetector::detectCollision(v2, v3) << endl;
+	cout << "    v1 does collide with v3: " << CollisionDetector::detectCollision(v1, v3) << endl;
 
 	cout << endl << "File transfer challenge: TBI" << endl;
 
