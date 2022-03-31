@@ -1,10 +1,10 @@
-#include <iostream>
+#include "gtest/gtest.h"
 
-using namespace std;
+#include "challenge.h"
 
-int main(int argc, char **argv) {
+TEST(UnitTests, defaultParamTest) {
+	Challenge challenge;
 
-	cout << "Hello from fake test main!" << endl;
-
-	return 0;
+	ASSERT_EQ(challenge.doSomethingWithInt(), 21);
+	ASSERT_NE(challenge.doSomethingWithInt(), 20);
 }

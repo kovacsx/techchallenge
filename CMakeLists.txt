@@ -5,6 +5,23 @@ project(techchallenge LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(techchallenge main.cpp)
+add_subdirectory(lib/googletest)
 
-add_executable(techchallenge_test test.cpp)
+set(BIN_SOURCES main.cpp)
+set(TEST_SOURCES test.cpp)
+set(LIB_SOURCES challenge.cpp)
+
+set(BIN_NAME ${CMAKE_PROJECT_NAME})
+set(TEST_NAME ${BIN_NAME}_test)
+set(LIB_NAME ${BIN_NAME}_lib)
+
+add_library(${LIB_NAME} STATIC ${LIB_SOURCES})
+
+add_executable(${BIN_NAME} ${BIN_SOURCES})
+target_link_libraries(${BIN_NAME} PUBLIC ${LIB_NAME})
+
+
+add_executable(${TEST_NAME} ${TEST_SOURCES})
+target_link_libraries(${TEST_NAME} PUBLIC ${LIB_NAME} gtest_main)
+add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+
