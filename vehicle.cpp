@@ -14,11 +14,16 @@ Vehicle::Vehicle(int16_t eastPosition, int16_t northPosition,
 }
 
 Position Vehicle::calculateVehiclePositionInTime(float currentTime) const {
-	return pair(0, 0);
+	
+	const float radOrient = orientation / 180.0 * M_PI;
+
+	const float dx = sin(radOrient) * speed * currentTime;
+	const float dy = cos(radOrient) * speed * currentTime;
+
+	return pair(position.first + dx, position.second + dy);
 }
 
 float Vehicle::distanceToPosition(const Position &toPosition) const {
-
 	return pointDistance(position, toPosition);
 }
 

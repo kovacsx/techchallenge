@@ -40,17 +40,26 @@ TEST(DetectorTests, goingSameDirectionNeverCollides) {
 	Vehicle vehicle1 {10, 10, 0, 5};
 	Vehicle vehicle2 {10, 40, 0, 10};
 
+	ASSERT_FALSE(CollisionDetector::detectCollision(vehicle1, vehicle2));
+}
+
+/*
+Static vehicle collision with driving vehicle
+*/
+TEST(DetectorTests, staticCollisionWithMovingVehicle) {
+	Vehicle vehicle1 {200, 200, 0, 0};
+	Vehicle vehicle2 {10, 10, 45, 10};
+
 	ASSERT_TRUE(CollisionDetector::detectCollision(vehicle1, vehicle2));
 }
 
 
 /*
-Will Static vehicle collides with driving vehicle (must collide)
+Static vehicle doe not collide with driving vehicle (close miss)
 */
 
-
 /*
-Will Static vehicle collides with driving vehicle (must not collide)
+Static vehicle does collide with driving vehicle (because crashThreshold)
 */
 
 
