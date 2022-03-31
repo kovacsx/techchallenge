@@ -9,7 +9,7 @@ add_subdirectory(lib/googletest)
 
 set(BIN_SOURCES main.cpp)
 set(TEST_SOURCES test.cpp)
-set(LIB_SOURCES challenge.cpp)
+set(LIB_SOURCES collisionDetector.cpp challenge.cpp )
 
 set(BIN_NAME ${CMAKE_PROJECT_NAME})
 set(TEST_NAME ${BIN_NAME}_test)

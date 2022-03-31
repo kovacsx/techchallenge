@@ -1,17 +1,28 @@
 #include <iostream>
 #include "challenge.h"
+#include "collisionDetector.h"
 
 using namespace std;
 
 int main(int argc, char **argv) {
 
-	cout << "Hello from main!" << endl;
+	cout << "Collision Detection challenge:" << endl;
 
-	Challenge c;
+	Vehicle v1{10, 10, 20, 30};
+	Vehicle v2{20, 20, 20, 30};
+	Vehicle v3{30, 50, 20, 10};
 
-	cout << "default output:" << c.doSomethingWithInt() << endl;
-	cout << "output 21:" << c.doSomethingWithInt(21) << endl;
-	cout << "output 20:" << c.doSomethingWithInt(20) << endl;
+	cout << "    v1 does collide with v2: " << CollisionDetection::detectCollision(v1, v2) << endl;
+	cout << "    v2 does collide with v3: " << CollisionDetection::detectCollision(v2, v3) << endl;
+	cout << "    v1 does collide with v3: " << CollisionDetection::detectCollision(v1, v3) << endl;
+
+	cout << endl << "File transfer challenge: TBI" << endl;
+
+	cout << endl << "Marshalling challenge: TBI" << endl;
+
+	cout << endl << "License file challenge: TBI" << endl;
+
+	cout << endl << "Data mining challenge: TBI" << endl;
 
 	return 0;
 }
